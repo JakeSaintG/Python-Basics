@@ -9,6 +9,16 @@ losses = 0
 draws = 0
 cont = True
 
+print("=========================================================================")
+print("The Rock, Paper, Scissors Bot (RPS-Bot) bows as if it were greeting you.")
+print("Its metal face is expressionless. It reachs out a balled up fist; ready to\nplay a few games of Rock, Paper, Scissors.")
+print("Intructions:")
+print("    - Type in Rock, Paper, or Scissors to make a move against the bot.")
+print("    - \"r\", \"p\", or \"s\" will also suffice as inputs.")
+print("    - RPS-Bot will prompt you at the end of each round to see if you would")
+print("    like to continue.")
+print("=========================================================================\n")
+
 while cont:
 
     print("Rock..")
@@ -23,28 +33,27 @@ while cont:
     print("RPS-Bot reaches its hand out and starts to form its \"move\". It knows what it is going to play.")
 
     user_move: str = input("What is your move? \n").lower()
-    # TODO: pull out
 
     print("Your hand shows " + user_move.upper() + " and the bot's hand shows " + bot_move.upper() + "!")
     time.sleep(0.6)
     if user_move == bot_move:
         print("Draw!")
         draws += 1
-    elif user_move == "rock":
+    elif user_move == "rock" or user_move == "r":
         if bot_move == "scissors":
             print("You win!")
             wins += 1
         elif bot_move == "paper":
             print("You lose! GOOD DAY!")
             losses += 1
-    elif user_move == "paper":
+    elif user_move == "paper" or user_move == "p":
         if bot_move == "rock":
             print("You win!")
             wins += 1
         elif bot_move == "scissors":
             print("You lose! GOOD DAY!")
             losses += 1
-    elif user_move == "scissors":
+    elif user_move == "scissors" or user_move == "s":
         if bot_move == "paper":
             print("You win!")
             wins += 1
@@ -62,11 +71,11 @@ while cont:
     if not "y" in i:
         cont = False
 
-print("The game is over.\nYou won " + str(wins) + " time(s).\nRPS-Bot won " + str(losses) + " time(s) with " + str(draws) + " draws.")
+print("\nThe game is over.\nYou won " + str(wins) + " time(s).\nRPS-Bot won " + str(losses) + " time(s) with " + str(draws) + " draws.")
 
 if losses > wins:
-    print("Overall, you lost.\nRPS-Bot can't look smug.\nStop projecting.")
+    print("\nOverall, you lost.\nRPS-Bot can't look smug.\nStop projecting.")
 elif losses == wins:
-    print("It looks like a draw overall.")
+    print("\nIt looks like a draw overall.")
 else:
-    print("YOU WON! RPS-Bot sits before you emotionless. In a Terminator-like future, you can bet it will remember this.")
+    print("\nYOU WON! RPS-Bot sits before you emotionless. In a Terminator-like future, you can bet it will remember this.")
