@@ -1,8 +1,6 @@
-import random
-from typing import List
+from rps_services import *
 import time
 
-possible_moves: List[str] = ["rock", "paper", "scissors"]
 goofs = 0
 wins = 0
 losses = 0
@@ -21,16 +19,7 @@ print("=========================================================================
 
 while cont:
 
-    print("Rock..")
-    time.sleep(0.6)
-    print("Paper..")
-    time.sleep(0.6)
-    print("Scissors..")
-    time.sleep(0.6)
-    print("Shoot!")
-    time.sleep(0.6)
-    bot_move: str = possible_moves[random.randint(0, 2)]
-    print("RPS-Bot reaches its hand out and starts to form its \"move\". It knows what it is going to play.")
+    bot_move = generate_bot_move()
 
     user_move: str = input("What is your move? \n").lower()
 
@@ -71,11 +60,4 @@ while cont:
     if not "y" in i:
         cont = False
 
-print("\nThe game is over.\nYou won " + str(wins) + " time(s).\nRPS-Bot won " + str(losses) + " time(s) with " + str(draws) + " draws.")
-
-if losses > wins:
-    print("\nOverall, you lost.\nRPS-Bot can't look smug.\nStop projecting.")
-elif losses == wins:
-    print("\nIt looks like a draw overall.")
-else:
-    print("\nYOU WON! RPS-Bot sits before you emotionless. In a Terminator-like future, you can bet it will remember this.")
+declare_victory(wins, losses, draws)
